@@ -40,6 +40,4 @@ urlpatterns = [
     path("api/", include(article_router.urls)),
     path("api/user", UserView.as_view(), name="user"),
     path("api/tags", TagListView.as_view(), name="tags-list"),
-    # Frontend
-    re_path(r"^(?:.*)$", TemplateView.as_view(template_name="index.html")),
 ]
