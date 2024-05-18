@@ -1,0 +1,29 @@
+<div class="auth-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-xs-12">
+        <h1 class="text-xs-center">Sign in</h1>
+        <p class="text-xs-center">
+          <a routerLink="/register">Need an account?</a>
+        </p>
+
+        <app-error-message [errors]="errors"></app-error-message>
+
+        <form [formGroup]="mainForm">
+          <fieldset class="form-group">
+            <input formControlName="email" class="form-control form-control-lg" type="text" placeholder="Email" />
+            <app-error-message [form]="mainForm.controls.email"></app-error-message>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <input formControlName="password" class="form-control form-control-lg" type="password" placeholder="Password" />
+            <app-error-message [form]="mainForm.controls.password"></app-error-message>
+          </fieldset>
+
+          <button [disabled]="!mainForm.valid" (click)="login()"
+                  class="btn btn-lg btn-primary pull-xs-right">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

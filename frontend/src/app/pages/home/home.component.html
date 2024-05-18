@@ -1,0 +1,30 @@
+<div class="home-page">
+  <div class="banner">
+    <div class="container">
+      <h1 class="logo-font">conduit</h1>
+      <p>A place to share your knowledge.</p>
+    </div>
+  </div>
+
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="feed-toggle">
+          <ul class="nav nav-pills outline-active">
+            <li *ngFor="let feed of feedList" class="nav-item">
+              <a class="nav-link" [ngClass]="{'active': feed.isActive}" (click)="setActiveFeed(feed)">{{feed.name}}</a>
+            </li>
+          </ul>
+        </div>
+
+        <app-articles-feed [feedMenuId]="activeFeed?.id" [queryParams]="feedQueryParams"></app-articles-feed>
+      </div>
+
+      <div class="col-md-3">
+        <div class="sidebar">
+          <app-article-tags (tagSelected)="setTagsFeed($event)"></app-article-tags>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
