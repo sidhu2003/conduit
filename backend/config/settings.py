@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost:8000/*"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8000/api/*", "http://localhost:8000/", "http://localhost:8000/*", "http://localhost/",  "http://localhost/*"]
 
 # Authentication
 AUTH_USER_MODEL = "users.User"
