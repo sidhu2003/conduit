@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost:8000/api/*", "http://localhost:8000/", "http://localhost:8000/*", "http://localhost/",  "http://localhost/*"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8000/api/*", "http://localhost:8000/", "http://localhost:8000/*", "http://localhost/",  "http://localhost/*", "http://127.0.0.1:8000/api/*", "http://127.0.0.1/*"]
 
 # Authentication
 AUTH_USER_MODEL = "users.User"
@@ -91,7 +91,13 @@ WSGI_APPLICATION = "config.wsgi.application"
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_URLS_REGEX = r"^/api/.*$"
 
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost",  # Replace with your frontend origin
+    "http://127.0.0.1",
+    "http://localhost/*",
+    "http://localhost:8000",
+    "http://localhost:8000/*",
+]
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
