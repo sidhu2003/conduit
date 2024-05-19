@@ -32,6 +32,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = ["http://localhost/*", "http://13.201.119.46/*", "http://frontend/*"]
+
 # Authentication
 AUTH_USER_MODEL = "users.User"
 SIMPLE_JWT = {
