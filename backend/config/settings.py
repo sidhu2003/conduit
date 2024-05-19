@@ -32,7 +32,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = [r"^/api/.*$"]
 
 # Authentication
 AUTH_USER_MODEL = "users.User"
@@ -91,9 +90,6 @@ WSGI_APPLICATION = "config.wsgi.application"
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_URLS_REGEX = r"^/api/.*$"
 
-CORS_ALLOWED_ORIGINS = [
-   r"^/api/.*$",
-]
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 

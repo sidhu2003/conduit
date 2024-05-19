@@ -25,8 +25,9 @@ services:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: postgres
 
+
   db:
-    image: postgres:latest
+    image: postgres:12
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
