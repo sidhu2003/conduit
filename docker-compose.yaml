@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   frontend:
-    image: programmer175/conduit_angular:latest
+    image: programmer175/frontend_arm:latest
     ports:
       - "80:80"
     volumes:
@@ -13,7 +13,7 @@ services:
       - backend
     
   backend:
-    image: programmer175/conduit_django:latest
+    image: programmer175/backend_arm:latest
     ports:
       - "8000:8000"
     volumes:

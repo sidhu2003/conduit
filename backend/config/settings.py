@@ -28,7 +28,7 @@ SECRET_KEY = (
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -91,7 +91,6 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_URLS_REGEX = r"^/api/.*$"
-CORS_ORIGIN_WHITELIST = ( 'http://localhost:8000','http://backend:8000')
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
