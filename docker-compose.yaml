@@ -27,7 +27,7 @@ services:
 
 
   db:
-    image: postgres:12
+    image: postgres:latest
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
