@@ -10,7 +10,6 @@ pipeline{
     stages{
         stage('Initialization & Unit Test'){
             steps{
-                sh 'apt install python3-pip -y'
                 sh 'pip install -r requirements.txt'
                 sh 'python3 manage.py makemigrations'
                 sh 'python3 manage.py migrate --database=default'
