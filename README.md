@@ -4,24 +4,8 @@
 ## Prerequisites
 Ensure you have Python 3 and Node.js installed on your system. The current project dependency versions are:
 - Python 3.10
-- Node.js 18.5.0
 
-## Installation
-### 1. Frontend: Choose 1 of 2 ways below:
-- Install frontend dependencies and start frontend locally:
-```shell
-npm --prefix=frontend install
-npm --prefix=frontend start
-```
-This command will install and start the Angular development server. You can access the Angular application through your web browser at `http://localhost:4200`.
-
-- Install and build frontend as static files (Choose this if you don't want to make any changes to Frontend project):
-```shell
-npm --prefix=frontend install
-npm --prefix=frontend run build
-```
-
-### 2. Backend:
+### Installation:
 - Set up a virtual environment
 ```shell
 # Install environment and dependencies
