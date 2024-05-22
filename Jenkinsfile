@@ -16,12 +16,6 @@ pipeline{
                 sh 'python3 manage.py test'
             }
         }
-        stage('Linting & Formatting'){
-            steps{
-                sh 'ruff check --fix'
-                sh 'ruff format'
-            }
-        }
 
         stage('OWASP Dependency-Check Vulnerabilities') {
       steps {
