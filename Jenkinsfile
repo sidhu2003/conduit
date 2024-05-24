@@ -17,17 +17,23 @@ pipeline{
             }
         }
 
-        stage('OWASP Dependency-Check Vulnerabilities') {
-      steps {
+      stage('OWASP Dependency-Check Vulnerabilities') {
+    environment {
+        NVD_API_KEY = credentials('nvd-api-key')
+    }
+    steps {
         dependencyCheck additionalArguments: ''' 
                     -o './'
                     -s './'
                     -f 'ALL' 
-                    --prettyPrint''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
+                    --prettyPrint
+                    --nvdApiKey ${NVD_API_KEY}
+                    ''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
         
         dependencyCheckPublisher pattern: 'dependency-check-report.xml'
       }
-    }
+}
+
 
         stage ('Build Docker Image') {
             steps {
