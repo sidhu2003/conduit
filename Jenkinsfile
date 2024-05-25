@@ -85,28 +85,26 @@ pipeline{
     }
 }
 
-    }
+post {
+    always {
+        archiveArtifacts artifacts: "trivy_report.html", fingerprint: true
+        publishHTML(target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: '.',
+            reportFiles: 'trivy_report.html',
+            reportName: 'Trivy Scan'
+        ])
 
-     post {
-        always {
-            archiveArtifacts artifacts: "trivy_report.html", fingerprint: true
-            publishHTML (target: [
-                allowMissing: false,
-                alwaysLinkToLastBuild: false,
-                keepAll: true,
-                reportDir: '.',
-                reportFiles: 'trivy_report.html',
-                reportName: 'Trivy Scan',
-                ])
-            }
-        }
-
-     post{
-        always {
-            echo 'Slack Notification'
-            slackSend channel: '#app',
+        echo 'Slack Notification'
+        slackSend(channel: '#app',
             color: COLOR_MAP[currentBuild.currentResult],
             message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME}"
-        }
-     }
+        )
+    }
+}
+
+
+    }
 }
