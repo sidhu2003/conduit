@@ -1,3 +1,8 @@
+def COLOR_MAP = [
+    'SUCCESS': 'good',
+    'FAILURE': 'danger'
+]
+
 pipeline{
     agent any
 
@@ -62,8 +67,8 @@ pipeline{
             }
         }
 
-        stage('Update Deployment file') {
-    steps {
+    stage('Update Deployment file') {
+     steps {
         sshagent(['GITHUB_SSH']) {
             sh '''
                 rm -rf conduit-manifests
@@ -81,6 +86,7 @@ pipeline{
 }
 
     }
+
      post {
         always {
             archiveArtifacts artifacts: "trivy_report.html", fingerprint: true
@@ -94,4 +100,13 @@ pipeline{
                 ])
             }
         }
+
+     post{
+        always {
+            echo 'Slack Notification'
+            slackSend channel: '#app',
+            color: COLOR_MAP[currentBuild.currentResult],
+            message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME}"
+        }
+     }
 }
