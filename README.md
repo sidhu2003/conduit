@@ -1,37 +1,46 @@
+# Conduit Backend CI/CD Pipeline
 
-# Getting started
+This repository contains the source code for the backend of our application. The following is an overview of our CI/CD pipeline which automates the process of building, testing, and deploying the application.
 
-## Prerequisites
-Ensure you have Python 3 and Node.js installed on your system. The current project dependency versions are:
-- Python 3.10
+![Pipeline Diagram](path_to_your_image)
 
-### Installation:
-- Set up a virtual environment
-```shell
-# Install environment and dependencies
-python3 -m venv .venv
-source .venv/bin/activate
+## Pipeline Steps
 
-# or use this command on Windows
-python3 -m venv .venv
-.venv/Scripts/activate
-```
+1. **Commit to Repository:**
+   - Developers push code changes to the Git repository.
 
-- Install backend dependencies:
-```shell
-pip install -r backend/requirements.txt
-```
+2. **Jenkins Server:**
+   - The Jenkins server automatically fetches the latest code changes.
 
-- Apply database migrations:
-```shell
-# Apply migrations
-python backend/manage.py migrate
-```
+3. **Initialization & Unit Tests:**
+   - Jenkins runs initialization scripts and unit tests to ensure code quality and functionality.
 
-- Run the Django development server:
-```shell
-# Run server
-python backend/manage.py runserver
-```
+4. **OWASP Dependency Check:**
+   - The code undergoes a security scan for known vulnerabilities in project dependencies using OWASP Dependency Check.
 
-Now, your local server should be running, and you can access this Django/Angular application through your web browser at http://localhost:8000.
+5. **Build Docker Image:**
+   - A Docker image of the application is built, ensuring a consistent runtime environment.
+
+6. **Image Scanning:**
+   - The Docker image is scanned for vulnerabilities to ensure security compliance.
+
+7. **Push to Dockerhub:**
+   - The built Docker image is pushed to Dockerhub, making it available for deployment.
+
+8. **Update Manifest Repository:**
+   - The Kubernetes manifest repository is updated with the new Docker image information.
+
+9. **ArgoCD Deployment:**
+   - ArgoCD, sitting within the Kubernetes cluster, automatically pulls the changes and deploys the application.
+
+10. **Post Actions:**
+    - Notifications are sent via Slack to inform the team of deployment status and other relevant events.
+
+## Getting Started
+
+To start working on the backend repository, clone this repository and follow the steps below:
+
+```bash
+git clone https://github.com/sidhu2003/conduit
+cd conduit
+# Install dependencies and start developing
