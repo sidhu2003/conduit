@@ -2,7 +2,7 @@
 
 This repository contains the source code for the backend of our application. The following is an overview of our CI/CD pipeline which automates the process of building, testing, and deploying the application.
 
-![Pipeline Diagram](path_to_your_image)
+![Pipeline Diagram](conduit.png)
 
 ## Pipeline Steps
 
