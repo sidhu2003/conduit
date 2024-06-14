@@ -44,3 +44,7 @@ To start working on the backend repository, clone this repository and follow the
 git clone https://github.com/sidhu2003/conduit
 cd conduit
 # Install dependencies and start developing
+```
+
+- Link to Frontend Repo: [Frontend](https://github.com/sidhu2003/conduit-frontend)
+- Link to manifest Repo: [Manifests](https://github.com/sidhu2003/conduit-manifests)
